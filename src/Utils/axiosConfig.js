@@ -6,6 +6,8 @@ export const API = axios.create({
         ContentType: "application/json",
     },
 })
+
 API.interceptors.request.use(async(req)=>{
     req.headers["Authorization"] = "Bearer " + localStorage.getItem("token")
+    return req
 })

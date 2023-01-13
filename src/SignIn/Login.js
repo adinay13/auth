@@ -3,18 +3,24 @@ import S from './SignIn.module.css'
 import {useDispatch, useSelector} from "react-redux";
 import {SignIn} from "../api/auth";
 import {useNavigate} from "react-router-dom";
+import axios from "axios";
 const LogIn = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
-    const dispatch = useDispatch
+    const dispatch = useDispatch()
     const signIn = useSelector(state => state.signIn)
     const handleSubmit = (e)=>{
         e.preventDefault()
-        dispatch(SignIn({email, password}))
+        // axios.post('https://users-auth-api.onrender.com/api/signin', {email, password}, {
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     }
+        // })
+
+        dispatch(SignIn({email, password, navigate})).then(()=> navigate('/users'))
         setEmail('')
         setPassword('')
-        navigate("/logIn")
     }
     const handleMail = (e)=> setEmail(e.target.value)
     const handlePassword = (e)=> setPassword(e.target.value)

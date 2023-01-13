@@ -10,16 +10,6 @@ const LogUp = () => {
     const [name, setName] = useState('')
     const [age, setAge] = useState('')
     const dispatch = useDispatch()
-    // const data = {
-    //     email: '',
-    //     password: '',
-    //     name: '',
-    //     age: parseInt('')
-    // }
-    // console.log(email)
-    // console.log(password)
-    // console.log(name)
-    // console.log(age)
     const handleSubmit = (e) =>{
         e.preventDefault()
         // dispatch(SignUp({email: email,password: password, name: name, age: age}))
@@ -40,7 +30,7 @@ const LogUp = () => {
                         <i></i>
                     </div>
                     <div className={S.inputBox}>
-                        <input onChange={(e)=>setPassword(e.target.value)} value={password} type="password" required="required" />
+                        <input onChange={(e)=>setPassword(e.target.value)} value={password} type="password" required="required" minLength={8}/>
                         <span>Password</span>
                         <i></i>
                     </div>
