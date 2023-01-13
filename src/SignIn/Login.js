@@ -9,7 +9,6 @@ const LogIn = () => {
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const signIn = useSelector(state => state.signIn)
     const handleSubmit = (e)=>{
         e.preventDefault()
         // axios.post('https://users-auth-api.onrender.com/api/signin', {email, password}, {
@@ -18,7 +17,7 @@ const LogIn = () => {
         //     }
         // })
 
-        dispatch(SignIn({email, password, navigate})).then(()=> navigate('/users'))
+        dispatch(SignIn({email: email, password: password})).then(()=> navigate('/users'))
         setEmail('')
         setPassword('')
     }

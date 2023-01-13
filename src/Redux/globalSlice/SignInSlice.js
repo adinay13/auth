@@ -28,8 +28,8 @@ const signInSlice = createSlice({
         },
         [SignIn.fulfilled]:(state, action)=>{
             state.status = 'active'
-            state.user = action.payload.data
-            localStorage.setItem("token", action.payload.token)
+            state.user = action.payload.user
+            localStorage.setItem("token", action.payload.accessToken)
 
         },
         [SignIn.rejected]:(state, action)=>{

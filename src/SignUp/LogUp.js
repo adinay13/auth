@@ -3,6 +3,7 @@ import S from './SignUp.module.css'
 import {useDispatch} from "react-redux";
 import {SignUp} from "../api/auth";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 const LogUp = () => {
     const [email, setEmail] = useState('')
@@ -10,6 +11,7 @@ const LogUp = () => {
     const [name, setName] = useState('')
     const [age, setAge] = useState('')
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const handleSubmit = (e) =>{
         e.preventDefault()
         // dispatch(SignUp({email: email,password: password, name: name, age: age}))
@@ -17,7 +19,7 @@ const LogUp = () => {
             headers: {
                 'Content-Type': 'application/json'
             }
-        })
+        }).then(() => navigate("/"))
     }
     return (
         <div className={S.box}>
