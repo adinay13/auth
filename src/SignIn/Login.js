@@ -40,7 +40,7 @@ const LogIn = () => {
                         <i></i>
                     </div>
                     <div className={S.links}>
-                        <a href="#">Forgot Password</a>
+
                         <a href="/logUp">Sign Up</a>
                     </div>
                     <button className={S.submit} type="submit">Submit</button>
